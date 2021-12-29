@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from "react";
-import Usefetch from "./Components/usefetch";
+import React, { useState } from "react";
 
 function App() {
-  const NEWAPI = "58fb9d76dd369fd0790961965fda0e81";
-  
+  const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
   const [city, updatecity] = useState("");
+  const [apiData, setApiData] = useState();
 
-  const { apiData } = Usefetch(`api.openweathermap.org/data/2.5/weather?q=${city}&appid=${NEWAPI}`)
+  function onEnter(e) {
+    if (e.key === "Enter") {
+      fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+      )
+        .then((response) => response.json())
+        .then((data) => setApiData(data))
+        .catch((error) => console.log(error));
+    }
+  }
 
-  console.log(apiData);
-
-
-  
   return (
-    <div className="core">
+    <div className='core'>
       <input
-        placeholder="Enter a City Name..."
+        placeholder='Enter a City Name...'
         value={city}
         onChange={(e) => updatecity(e.target.value)}
+        onKeyPress={onEnter}
       />
 
       <h1>{city.toUpperCase()}</h1>
