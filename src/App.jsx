@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DegreesToDirections from "./DegreesToDirections";
 import ErrorHandler from "./ErrorHandler";
 
 function App() {
@@ -18,9 +19,9 @@ function App() {
   }
 
   return (
-    <div className="core">
+    <div className='core'>
       <input
-        placeholder="Enter a City Name..."
+        placeholder='Enter a City Name...'
         value={city}
         onChange={(e) => updatecity(e.target.value)}
         onKeyPress={onEnter}
@@ -34,17 +35,30 @@ function App() {
           <h1>
             {apiData.name}, {apiData.sys.country}
           </h1>
-          <h2 className="main">
-            Temperature: {Math.round(apiData.main.temp)}{" "}
+
+          <h2 className='main'>
+            Temperature: {Math.round(apiData.main.temp)}°C
+            <span className='nestedSpans'>
+              Feels Like: {apiData.main.feels_like}° Celsius{" "}
+            </span>
           </h2>
-          <h2>Overall Weather: {apiData.weather[0].main} </h2>
+
+          <h2>Overall Status: {apiData.weather[0].main} </h2>
+
           <h2>Description: {apiData.weather[0].description.toUpperCase()} </h2>
-          <h2 className="main">Wind Direction : {apiData.wind.deg} Degrees </h2>
+
+          <h2 className='main'>
+            Wind Direction : {apiData.wind.deg} Degrees{" "}
+            <span className='nestedSpans'>
+              <DegreesToDirections deg={apiData.wind.deg} />
+            </span>
+          </h2>
+
           <h2>Wind Speed: {apiData.wind.speed}Km/h </h2>
+
           <h2>
-            Geographical coordinates : <br /> Latitude: {apiData.coord.lat},
-            Longitude:
-            {apiData.coord.lon}
+            Geographical coordinates : <br />
+            Latitude: {apiData.coord.lat}, Longitude:{apiData.coord.lon}
           </h2>
         </div>
       )}
