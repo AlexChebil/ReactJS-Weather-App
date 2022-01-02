@@ -26,7 +26,7 @@ function App() {
         onChange={(e) => updatecity(e.target.value)}
         onKeyPress={onEnter}
       />
-      {typeof apiData === "undefined" ||
+      {apiData === undefined ||
       apiData.cod === "404" ||
       apiData.cod === "400" ? (
         <h3>Enter A Valid City Name..</h3>
