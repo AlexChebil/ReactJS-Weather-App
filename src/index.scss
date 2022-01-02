@@ -14,11 +14,20 @@ body {
     width: 80%;
     padding: 1em;
   }
+
   h1 {
     font-size: 3.5em;
   }
+
   .nestedSpans {
-    font-size: 70%;
+    font-size: 85%;
     display: block;
+  }
+
+  h1 {
+    span {
+      font-size: 40% !important;
+      margin: 2.5% 0;
+    }
   }
 }
