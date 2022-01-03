@@ -19,9 +19,9 @@ function App() {
     }
   }
   return (
-    <div className="core">
+    <div className='core day'>
       <input
-        placeholder="Enter a City Name..."
+        placeholder='Enter a City Name...'
         value={city}
         onChange={(e) => updatecity(e.target.value)}
         onKeyPress={onEnter}
@@ -32,16 +32,16 @@ function App() {
         <h3>Enter A Valid City Name..</h3>
       ) : (
         <div>
-          <h1>
+          <h1 className='country'>
             {apiData.name}, {apiData.sys.country}
           </h1>
           <h2>
             <DateHandler />
           </h2>
 
-          <h1 className="main">
+          <h1 className='main temp'>
             {Math.round(apiData.main.temp)}°C
-            <span className="nestedSpans">
+            <span className='nestedSpans'>
               Feels Like: {apiData.main.feels_like}°C{" "}
             </span>
           </h1>
@@ -50,9 +50,9 @@ function App() {
 
           <h2>Description: {apiData.weather[0].description.toUpperCase()} </h2>
 
-          <h2 className="main">
-            Wind Direction : {apiData.wind.deg} Degrees{" "}
-            <span className="nestedSpans">
+          <h2 className='main'>
+            Wind Direction : {apiData.wind.deg} Degrees
+            <span className='nestedSpans'>
               <DegreesToDirections deg={apiData.wind.deg} />
             </span>
           </h2>

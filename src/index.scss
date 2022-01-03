@@ -1,11 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Smooch&display=swap");
 body {
   background-color: rgb(173, 173, 173);
   color: whitesmoke;
+  font-family: cursive;
+  background-size: 100% 120%;
+  height: 100vh;
 }
+
+.core.day {
+  background-image: url(Background/after_noon.webp);
+}
+.core.night {
+  background-image: url(Background/night.webp);
+}
+
 .core {
   text-align: center;
 
+  .country {
+    font-family: "Smooch", cursive;
+  }
+
   input {
+    font-family: cursive;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -17,6 +34,8 @@ body {
 
   h1 {
     font-size: 3.5em;
+
+    font-family: "Smooch", cursive;
   }
 
   .nestedSpans {
@@ -29,5 +48,11 @@ body {
       font-size: 40% !important;
       margin: 2.5% 0;
     }
+  }
+  .temp {
+    span {
+      font-family: cursive;
+    }
+    font-family: "Smooch", cursive;
   }
 }

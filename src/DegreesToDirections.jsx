@@ -1,21 +1,6 @@
 import React, { useState } from "react";
 
 function DegreesToDirections({ deg, Apidata }) {
-  /* 
-  }
- 
-  
-  
-  if (deg >= 225 && deg < 270) {
-    return "Pointing SouthWest";
-  }
-  if (deg >= 270 && deg < 315) {
-    return "Pointing West";
-  }
-  if (deg >= 315 && deg < 359) {
-    return "Pointing NorthWest";
-  } */
-
   switch (true) {
     case deg === 360 || (deg >= 0 && deg < 45):
       return "Pointing North";
