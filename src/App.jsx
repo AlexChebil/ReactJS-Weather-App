@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DateHandler from "./Components/DateHandler";
 import DegreesToDirections from "./DegreesToDirections";
 import ErrorHandler from "./ErrorHandler";
@@ -7,6 +7,7 @@ function App() {
   const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
+  const [isday, setIsDay] = useState(undefined);
 
   function onEnter(e) {
     if (e.key === "Enter") {
@@ -18,8 +19,21 @@ function App() {
         .catch((error) => console.log(error));
     }
   }
+
+  useEffect(() => {
+    if (apiData && apiData.weather[0].main === "Clear") {
+      setIsDay("day");
+    } else if (apiData && apiData.weather[0].main === "Clouds") {
+      setIsDay("night");
+    }
+  }, [apiData]);
+
   return (
-    <div className='core day'>
+    <div
+      className={`core ${isday ? "day" : null} ${
+        isday === "night" ? "night" : null
+      }`} // added two ternary operator to have a empty bg at launch (might delete later)
+    >
       <input
         placeholder='Enter a City Name...'
         value={city}
