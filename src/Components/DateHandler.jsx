@@ -19,7 +19,7 @@ function DateHandler() {
     date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds();
 
   return (
-    <div>
+    <div className='dateHandler'>
       <div>{fullDate} </div>
       <div>{time} </div>
     </div>
