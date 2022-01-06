@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BgHandler from "./Components/BgHandler";
 import DateHandler from "./Components/DateHandler";
 import DegreesToDirections from "./DegreesToDirections";
@@ -8,7 +8,6 @@ function App() {
   const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
-  let utcDate = 18000 / 3600;
 
   function onEnter(e) {
     if (e.key === "Enter") {

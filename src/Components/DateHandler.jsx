@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function DateHandler() {
   const date = new Date();
-  const [dummyState, setDummyState] = useState();
-  let seconds = date.getSeconds();
   let fullDate = date.toDateString();
+  const [dummyState, setDummyState] = useState();
 
   useEffect(() => {
     const inter = setInterval(() => {
@@ -16,7 +15,8 @@ function DateHandler() {
     };
   }, [dummyState]); // this useEffect AND setInterval refresh the entire component every 1second to get new values
 
-  let time = date.getHours() + " : " + date.getMinutes() + " : " + seconds;
+  let time =
+    date.getHours() + " : " + date.getMinutes() + " : " + date.getSeconds();
 
   return (
     <div>

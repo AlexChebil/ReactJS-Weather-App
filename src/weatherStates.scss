@@ -1,0 +1,25 @@
+body.clearSky {
+  background-image: url(WeatherStates/clearSky.jpg);
+  background-size: 100% 100%;
+}
+body.heavyClouds {
+  background-image: url(WeatherStates/heavyClouds.jpg);
+  background-size: 200% 100%;
+}
+body.heavyRain {
+  background-image: url(WeatherStates/heavyRain.jpg);
+  background-size: 100% 100%;
+}
+body.lightClouds {
+  background-image: url(WeatherStates/lightClouds.jpg);
+  background-size: 200% 100%;
+}
+
+body.lightRain {
+  background-image: url(WeatherStates/lightRain.jpg);
+  background-size: 100% 100%;
+}
+
+body {
+  background-image: url(Background/night.webp);
+}

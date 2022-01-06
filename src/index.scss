@@ -3,14 +3,8 @@ body {
   background-color: rgb(173, 173, 173);
   color: whitesmoke;
   font-family: cursive;
-  background-size: 100% 100%;
+  background-repeat: no-repeat;
   height: 120vh;
-}
-body.day {
-  background-image: url(Background/after_noon.webp);
-}
-body.night {
-  background-image: url(Background/night.webp);
 }
 
 .core {
