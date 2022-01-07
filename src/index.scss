@@ -23,6 +23,9 @@ body {
     font-size: 1.5em;
     width: 80%;
     padding: 1em;
+    border-radius: 0.5em;
+    border: none;
+    text-align: center;
   }
 
   h1 {
@@ -70,16 +73,37 @@ body {
   }
 }
 .flexContStatus {
+  background-color: rgba(128, 128, 128, 0.246);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   border-radius: 2em;
-  background-color: rgba(128, 128, 128, 0.246);
-  :nth-child(1) {
-    border-right: 3px solid rgb(90, 90, 90);
+  margin: 1em;
+
+  div {
+    font-weight: bolder;
+    padding: 0 2em;
   }
-  :nth-child(2) {
-    margin: 1em;
+  div:nth-child(1) {
     border-right: 3px solid rgb(90, 90, 90);
+    padding-top: 1em;
+  }
+  div:nth-child(2) {
+    border-right: 3px solid rgb(90, 90, 90);
+    padding-top: 1em;
+  }
+  div:nth-child(1) {
+    border-right: 3px solid rgb(90, 90, 90);
+    padding-top: 1em;
+  }
+  div:nth-child(3) {
+    padding-top: 1em;
+  }
+}
+
+.flexContStatus.active {
+  height: 2em;
+  div {
+    display: none;
   }
 }
