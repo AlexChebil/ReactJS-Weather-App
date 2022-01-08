@@ -54,19 +54,21 @@ function App() {
             <h2 className='flex'>Max: {Math.round(apiData.main.temp_max)}°</h2>
           </div>
 
-          <h2 onClick={switchStatusClass}>Status</h2>
+          <h2 className='status' onClick={switchStatusClass}>
+            Status🠻
+          </h2>
 
           <div className='flexContStatus'>
             <div>
-              Overall Status<h3>{apiData.weather[0].main}</h3>
+              Overall <h3>{apiData.weather[0].main}</h3>
             </div>
 
             <div>
-              Status Description <h3>{apiData.weather[0].description} </h3>
+              Description <h3>{apiData.weather[0].description} </h3>
             </div>
 
             <div>
-              Pressure <h3>{apiData.main.pressure} </h3>
+              Pressure <h3>{apiData.main.pressure} hPa </h3>
             </div>
           </div>
 
