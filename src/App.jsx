@@ -23,6 +23,9 @@ function App() {
   function switchStatusClass() {
     document.querySelector(".flexContStatus").classList.toggle("active");
   }
+  function switchWindClass() {
+    document.querySelector(".flexContWind").classList.toggle("active");
+  }
 
   return (
     <div className='core'>
@@ -72,9 +75,11 @@ function App() {
             </div>
           </div>
 
-          <h2 className='status'>Wind🠻</h2>
+          <h2 className='status' onClick={switchWindClass}>
+            Wind🠻
+          </h2>
 
-          <div className='flexContWind'>
+          <div className='flexContWind active'>
             <div>
               Speed
               <h4> {apiData.wind.speed}Km/h </h4>
@@ -95,7 +100,7 @@ function App() {
           </div>
 
           <h2>
-            Geographical coordinates :<div>Longitude: {apiData.coord.lon}</div>
+            <div>Longitude: {apiData.coord.lon}</div>
             <div>Latitude: {apiData.coord.lat}</div>
           </h2>
 

@@ -46,6 +46,13 @@ body {
     }
   }
   .temp {
+    background-color: rgba(255, 255, 255, 0.281);
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0.25em 1.25em;
+    border-radius: 0.2em;
+
     span {
       font-family: cursive;
     }
@@ -77,10 +84,15 @@ body {
   width: min-content;
   margin-left: auto;
   margin-right: auto;
+  padding: 0.25em 0.75em;
+  border-radius: 0.2em;
 }
 .status:hover {
   background-color: rgba(65, 65, 65, 0.233);
   cursor: pointer;
+}
+.status:active {
+  border: 4px solid rgba(204, 204, 204, 0.561);
 }
 
 .flexContStatus {
@@ -90,6 +102,12 @@ body {
   justify-content: space-evenly;
   border-radius: 2em;
   margin: 1em;
+  height: 6.5em;
+  transition: all 0.5s ease-in-out;
+
+  :nth-child(n) {
+    transition: all 0.5s ease-in-out;
+  }
 
   div {
     font-weight: bolder;
@@ -115,8 +133,11 @@ body {
 .flexContStatus.active {
   height: 3em;
   border: 2px solid rgba(194, 194, 194, 0.356);
+
   div {
-    display: none;
+    opacity: 0;
+    font-size: 0;
+    transition: all 0.25s ease-in-out;
   }
 }
 
@@ -128,11 +149,17 @@ body {
   border-radius: 2em;
   margin: 1em;
   padding: 0 2em;
-  line-height: 3em;
+  height: 8em;
+  transition: all 0.5s ease-in-out;
 
+  :nth-child(n) {
+    transition: all 0.5s ease-in-out;
+  }
   div {
     font-size: 1.75em;
     font-weight: bolder;
+    position: relative;
+    opacity: 1;
 
     h4 {
       font-size: 0.725em;
@@ -153,5 +180,18 @@ body {
   div:nth-child(3) {
     padding-top: 0.5em;
     padding-left: 2em;
+  }
+}
+
+.flexContWind.active {
+  height: 3em;
+  border: 2px solid rgba(194, 194, 194, 0.356);
+
+  div {
+    opacity: 0;
+  }
+  :nth-child(n) {
+    font-size: 0em;
+    transition: all 0.25s ease-in-out;
   }
 }
