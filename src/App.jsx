@@ -58,7 +58,7 @@ function App() {
             Status🠻
           </h2>
 
-          <div className='flexContStatus'>
+          <div className='flexContStatus active'>
             <div>
               Overall <h3>{apiData.weather[0].main}</h3>
             </div>
@@ -72,14 +72,28 @@ function App() {
             </div>
           </div>
 
-          <h2 className='main'>
-            Wind Direction : {apiData.wind.deg} Degrees
-            <span className='nestedSpans'>
-              <DegreesToDirections deg={apiData.wind.deg} />
-            </span>
-          </h2>
+          <h2 className='status'>Wind🠻</h2>
 
-          <h2>Wind Speed: {apiData.wind.speed}Km/h </h2>
+          <div className='flexContWind'>
+            <div>
+              Speed
+              <h4> {apiData.wind.speed}Km/h </h4>
+            </div>
+
+            <div>
+              Direction
+              <h4>
+                {apiData.wind.deg}°,
+                <DegreesToDirections deg={apiData.wind.deg} />
+              </h4>
+            </div>
+
+            <div>
+              Gust
+              <h4> {apiData.wind.gust}M/s </h4>
+            </div>
+          </div>
+
           <h2>
             Geographical coordinates :<div>Longitude: {apiData.coord.lon}</div>
             <div>Latitude: {apiData.coord.lat}</div>
