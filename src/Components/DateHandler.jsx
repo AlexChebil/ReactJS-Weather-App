@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 function DateHandler() {
   const date = new Date();
-  let fullDate = date.toDateString();
   const [dummyState, setDummyState] = useState();
 
   useEffect(() => {
@@ -20,7 +19,6 @@ function DateHandler() {
 
   return (
     <div className='dateHandler'>
-      <div>{fullDate} </div>
       <div>{time} </div>
     </div>
   );

@@ -14,6 +14,17 @@ body {
     font-family: "Smooch", cursive;
   }
 
+  .dateString {
+    margin-top: -1.5em;
+  }
+
+  .flagImg {
+    width: 10em;
+    margin-bottom: 0.5em;
+    border-radius: 1em;
+    //transition: all 5s ease-in-out;
+  }
+
   input {
     font-family: cursive;
     display: block;

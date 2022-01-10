@@ -9,6 +9,8 @@ function App() {
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
   const [flag, setflag] = useState("");
+  const date = new Date();
+  let fullDate = date.toDateString();
 
   function onEnter(e) {
     if (e.key === "Enter") {
@@ -54,18 +56,18 @@ function App() {
       ) : (
         <div>
           <h1 className='country'>{apiData.name}</h1>
-          <img
-            onLoad={(Getflag(), RR())}
-            className='flagImg'
-            src='aa'
-            alt='thisISimage'
-          />
+
+          <h2 className='dateString'>{fullDate} </h2>
+
+          <img onLoad={(Getflag(), RR())} className='flagImg' src='aa' alt='' />
 
           <h2>
             <DateHandler />
           </h2>
 
           <h1 className='main temp'>{Math.round(apiData.main.temp)}°C</h1>
+
+          <h2>{apiData.main.humidity}% Humidity </h2>
 
           <div className='flexCont'>
             <h2 className='flex'>Min: {Math.round(apiData.main.temp_min)}°</h2>
