@@ -8,6 +8,7 @@ function App() {
   const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
+  const [flag, setflag] = useState("");
 
   function onEnter(e) {
     if (e.key === "Enter") {
@@ -27,6 +28,17 @@ function App() {
     document.querySelector(".flexContWind").classList.toggle("active");
   }
 
+  function Getflag() {
+    fetch(`https://countryflagsapi.com/png/${apiData.sys.country}`)
+      .then((response) => setflag(response.url))
+      .catch((error) => console.log(error));
+  }
+
+  function RR() {
+    let isTrue = document.querySelector(".flagImg");
+    isTrue && (document.querySelector(".flagImg").src = flag);
+  }
+
   return (
     <div className='core'>
       <input
@@ -41,9 +53,13 @@ function App() {
         <h3>Enter A Valid City Name..</h3>
       ) : (
         <div>
-          <h1 className='country'>
-            {apiData.name} <br /> {apiData.sys.country}
-          </h1>
+          <h1 className='country'>{apiData.name}</h1>
+          <img
+            onLoad={(Getflag(), RR())}
+            className='flagImg'
+            src='aa'
+            alt='thisISimage'
+          />
 
           <h2>
             <DateHandler />
