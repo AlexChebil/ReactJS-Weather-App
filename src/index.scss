@@ -206,3 +206,40 @@ body {
     transition: all 0.25s ease-in-out;
   }
 }
+
+.comfort {
+  background-color: rgba(128, 128, 128, 0.246);
+  border-radius: 2em;
+  font-size: 1.5em;
+  padding: 1em;
+  height: 2em;
+  transition: all 0.25s ease-in-out;
+  font-weight: bolder;
+
+  :nth-child(n) {
+    margin-top: 0.25em;
+    transition: all 0.75s ease-in-out;
+  }
+  #humidity {
+    position: relative;
+    top: -12px;
+    margin-left: 0.25em;
+  }
+  #humidityValue {
+    position: relative;
+    right: -52.5px;
+    top: -14px;
+    font-size: 0.75em;
+  }
+  .CircularProgress {
+    width: 2em !important;
+  }
+}
+.comfort.active {
+  height: 0em;
+
+  :nth-child(n) {
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+  }
+}
