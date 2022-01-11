@@ -4,6 +4,7 @@ import DateHandler from "./Components/DateHandler";
 import DegreesToDirections from "./Components/DegreesToDirections";
 import ErrorHandler from "./Components/ErrorHandler";
 import CircularProgress from "@mui/material/CircularProgress";
+import { parse } from "@fortawesome/fontawesome-svg-core";
 
 function App() {
   const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
@@ -73,11 +74,16 @@ function App() {
 
           <div className='flexCont'>
             <h2 className='flex'>Min: {Math.round(apiData.main.temp_min)}°</h2>
-            <h2 className='flex'>Feels Like: {apiData.main.feels_like}°</h2>
+            <h2 className='flex'>
+              Feels Like:{apiData.main.feels_like.toFixed(1)}°{" "}
+              {/* // this is a string, parseInt to convert to num */}
+            </h2>
             <h2 className='flex'>Max: {Math.round(apiData.main.temp_max)}°</h2>
           </div>
 
-          <h2 onClick={switchComfortClass}>Comfort🠻</h2>
+          <h2 className='status' onClick={switchComfortClass}>
+            Comfort🠻
+          </h2>
           <div className='comfort'>
             <span id='humidityValue'>{apiData.main.humidity}%</span>
 

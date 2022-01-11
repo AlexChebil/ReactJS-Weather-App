@@ -218,7 +218,7 @@ body {
 
   :nth-child(n) {
     margin-top: 0.25em;
-    transition: all 0.75s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
   #humidity {
     position: relative;
@@ -240,6 +240,7 @@ body {
 
   :nth-child(n) {
     opacity: 0;
+    font-size: 0em;
     transition: all 0.25s ease-in-out;
   }
 }
