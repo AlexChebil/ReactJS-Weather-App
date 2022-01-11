@@ -18,11 +18,38 @@ body {
     margin-top: -1.5em;
   }
 
+  @keyframes flagAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes flagAnimationReverse {
+    100% {
+      opacity: 0;
+    }
+    0% {
+      opacity: 1;
+    }
+  }
+
   .flagImg {
     width: 10em;
     margin-bottom: 0.5em;
     border-radius: 1em;
-    //transition: all 5s ease-in-out;
+    animation-name: flagAnimationReverse;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+  }
+
+  .flagImg.active {
+    animation-name: flagAnimation;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
   }
 
   input {

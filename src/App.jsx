@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BgHandler from "./Components/BgHandler";
 import DateHandler from "./Components/DateHandler";
 import DegreesToDirections from "./Components/DegreesToDirections";
@@ -45,6 +45,10 @@ function App() {
     let isTrue = document.querySelector(".flagImg");
     isTrue && (document.querySelector(".flagImg").src = flag);
   }
+
+  useEffect(() => {
+    flag && document.querySelector(".flagImg").classList.toggle("active");
+  }, [flag]);
 
   return (
     <div className='core'>
