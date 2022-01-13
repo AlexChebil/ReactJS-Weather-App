@@ -4,7 +4,6 @@ import DateHandler from "./Components/DateHandler";
 import DegreesToDirections from "./Components/DegreesToDirections";
 import ErrorHandler from "./Components/ErrorHandler";
 import CircularProgress from "@mui/material/CircularProgress";
-import { parse } from "@fortawesome/fontawesome-svg-core";
 
 function App() {
   const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
@@ -71,7 +70,7 @@ function App() {
           <img onLoad={(Getflag(), RR())} className='flagImg' src='aa' alt='' />
 
           <h2>
-            <DateHandler />
+            <DateHandler apiCountryDate={apiData.timezone} />
           </h2>
 
           <h1 className='main temp'>{Math.round(apiData.main.temp)}°C</h1>
@@ -141,11 +140,11 @@ function App() {
               <h4> {apiData.wind.gust}M/s </h4>
             </div>
           </div>
-
-          <h2>
-            <div>Longitude: {apiData.coord.lon}</div>
-            <div>Latitude: {apiData.coord.lat}</div>
-          </h2>
+          <h2 className='status'>Geographical Coordinates🠻</h2>
+          <div>
+            <h2>Longitude: {apiData.coord.lon}</h2>
+            <h2>Latitude: {apiData.coord.lat}</h2>
+          </div>
 
           <BgHandler apiData={apiData} />
         </div>
