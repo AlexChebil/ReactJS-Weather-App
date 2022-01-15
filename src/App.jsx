@@ -70,7 +70,10 @@ function App() {
           <img onLoad={(Getflag(), RR())} className='flagImg' src='aa' alt='' />
 
           <h2>
-            <DateHandler apiCountryDate={apiData.timezone} />
+            <DateHandler
+              latitude={apiData.coord.lat}
+              longitude={apiData.coord.lon}
+            />
           </h2>
 
           <h1 className='main temp'>{Math.round(apiData.main.temp)}°C</h1>

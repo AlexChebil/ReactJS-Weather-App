@@ -1,33 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-function DateHandler({ apiCountryDate }) {
-  const date = new Date();
-  const [dummyState, setDummyState] = useState();
+function DateHandler({ latitude, longitude }) {
+  const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f";
 
-  const UTCinHours = apiCountryDate / 3600;
-  let countryTime = date.getHours() + Math.round(UTCinHours) - 1; // -1 because we're not in UTC +1 ,not 0
-
-  if (countryTime >= 24) {
-    let dayPassed = date.getHours() + UTCinHours - 24; // the remaining hours after midnight
-    countryTime = 0 + dayPassed - 1; // -1 because we're not in UTC +1 ,not 0
+  async function getTime() {
+    const response = await fetch(
+      `https://api.ipgeolocation.io/timezone?apiKey=${apiKEY}&lat=${latitude}&long=${longitude}`
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
   }
 
   useEffect(() => {
-    const inter = setInterval(() => {
-      setDummyState(true);
-    }, 1000);
-    return () => {
-      clearInterval(inter);
-      setDummyState(false);
-    };
-  }, [dummyState]); // this useEffect AND setInterval refresh the entire component every 1s to get new values
-
-  let time =
-    countryTime + " : " + date.getMinutes() + " : " + date.getSeconds();
-
+    getTime().then(
+      (data) =>
+        (document.querySelector("#dateGoesHere").innerHTML = data.time_24)
+    );
+  }, []);
   return (
     <div className='dateHandler'>
-      <div>{time} </div>
+      <div id='dateGoesHere'> </div>
     </div>
   );
 }
