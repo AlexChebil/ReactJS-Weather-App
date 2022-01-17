@@ -281,3 +281,57 @@ body {
     transition: all 0.25s ease-in-out;
   }
 }
+
+.gridCont {
+  background-color: rgba(128, 128, 128, 0.246);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 3.5em;
+  border-radius: 2em;
+  gap: 1em;
+  height: 13em;
+  transition: all 0.25s ease-in-out;
+  //this is for the top part
+
+  :nth-child(n) {
+    opacity: 1;
+    transition: all 0.25s ease-in-out;
+  }
+  :nth-child(1) {
+    border-bottom: 2px solid black;
+    margin-right: -0.75em;
+  }
+  :nth-child(2) {
+    border-bottom: 2px solid black;
+  }
+
+  :nth-child(3) {
+    border-top: 2px solid black;
+    margin-right: -0.75em;
+  }
+  :nth-child(4) {
+    border-top: 2px solid black;
+    //margin-left: -0.5em;
+  }
+  // X AXIS
+
+  //THIS IS Y AXIS
+  :nth-child(1) {
+    border-right: 2px solid black;
+    margin-right: -0.75em;
+  }
+  :nth-child(3) {
+    border-right: 2px solid black;
+    margin-right: -0.75em;
+  }
+}
+.gridCont.active {
+  height: 3em;
+  transition: all 0.5s ease-in-out;
+
+  //width: 40%;
+  :nth-child(n) {
+    opacity: 0;
+    margin: 0 -2em;
+  }
+}

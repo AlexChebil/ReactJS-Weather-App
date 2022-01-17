@@ -10,6 +10,9 @@ function App() {
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
   const [flag, setflag] = useState("");
+  const [timezone, updateTimezone] = useState();
+  const [timezoneOffset, updateTimezoneOffset] = useState();
+
   const date = new Date();
   let fullDate = date.toDateString();
 
@@ -33,6 +36,9 @@ function App() {
   function switchComfortClass() {
     document.querySelector(".comfort").classList.toggle("active");
   }
+  function switchGeographicalClass() {
+    document.querySelector(".gridCont").classList.toggle("active");
+  }
 
   function Getflag() {
     fetch(`https://countryflagsapi.com/png/${apiData.sys.country}`)
@@ -48,6 +54,10 @@ function App() {
   useEffect(() => {
     flag && document.querySelector(".flagImg").classList.toggle("active");
   }, [flag]);
+
+  /*   const array = [1, 2, ":", 4, 5, ":", 0, 3];
+  const stringed = array.filter((entry) => entry > array.length - 7);
+  console.log(stringed); */
 
   return (
     <div className='core'>
@@ -73,6 +83,8 @@ function App() {
             <DateHandler
               latitude={apiData.coord.lat}
               longitude={apiData.coord.lon}
+              UTZ={updateTimezone}
+              UTZO={updateTimezoneOffset}
             />
           </h2>
 
@@ -81,7 +93,7 @@ function App() {
           <div className='flexCont'>
             <h2 className='flex'>Min: {Math.round(apiData.main.temp_min)}°</h2>
             <h2 className='flex'>
-              Feels Like:{apiData.main.feels_like.toFixed(1)}°{" "}
+              Feels Like:{apiData.main.feels_like.toFixed(1)}°
               {/* // this is a string, parseInt to convert to num */}
             </h2>
             <h2 className='flex'>Max: {Math.round(apiData.main.temp_max)}°</h2>
@@ -143,10 +155,14 @@ function App() {
               <h4> {apiData.wind.gust}M/s </h4>
             </div>
           </div>
-          <h2 className='status'>Geographical Coordinates🠻</h2>
-          <div>
+          <h2 onClick={switchGeographicalClass} className='status'>
+            Geographical Coordinates🠻
+          </h2>
+          <div className='gridCont'>
             <h2>Longitude: {apiData.coord.lon}</h2>
             <h2>Latitude: {apiData.coord.lat}</h2>
+            <h2> Timezone: {timezone} </h2>
+            <h2> UTC Offset: {timezoneOffset} </h2>
           </div>
 
           <BgHandler apiData={apiData} />
