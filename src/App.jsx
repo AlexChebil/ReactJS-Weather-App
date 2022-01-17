@@ -93,7 +93,7 @@ function App() {
           <div className='flexCont'>
             <h2 className='flex'>Min: {Math.round(apiData.main.temp_min)}°</h2>
             <h2 className='flex'>
-              Feels Like:{apiData.main.feels_like.toFixed(1)}°
+              Feels: {apiData.main.feels_like.toFixed(1)}°
               {/* // this is a string, parseInt to convert to num */}
             </h2>
             <h2 className='flex'>Max: {Math.round(apiData.main.temp_max)}°</h2>
@@ -102,7 +102,7 @@ function App() {
           <h2 className='status' onClick={switchComfortClass}>
             Comfort🠻
           </h2>
-          <div className='comfort'>
+          <div className='comfort active'>
             <span id='humidityValue'>{apiData.main.humidity}%</span>
 
             <CircularProgress
@@ -158,7 +158,7 @@ function App() {
           <h2 onClick={switchGeographicalClass} className='status'>
             Geographical Coordinates🠻
           </h2>
-          <div className='gridCont'>
+          <div className='gridCont active'>
             <h2>Longitude: {apiData.coord.lon}</h2>
             <h2>Latitude: {apiData.coord.lat}</h2>
             <h2> Timezone: {timezone} </h2>

@@ -30,10 +30,11 @@ function BgHandler({ apiData }) {
         document.body.classList.add("lightClouds");
         break;
 
-      // add snow here
+      // add snow and mist here
 
       default:
-        // add default bg here
+        document.body.classList.add("lightRain");
+
         break;
     }
   }, [apiData]);
