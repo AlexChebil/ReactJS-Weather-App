@@ -21,7 +21,9 @@ function DateHandler({ latitude, longitude, UTZ, UTZO }) {
       .then((data) => data.join(""))
       .then(
         (data) => (document.querySelector("#dateGoesHere").innerHTML = data) // display the date on the div
-      );
+      )
+      .catch((error) => console.log(error));
+
     //the data in () is the outputed data of the last .then()
   }, [latitude]); // the latitude as dependency is to get new time value on every user input
 

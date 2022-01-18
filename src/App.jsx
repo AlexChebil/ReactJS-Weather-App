@@ -4,6 +4,7 @@ import DateHandler from "./Components/DateHandler";
 import DegreesToDirections from "./Components/DegreesToDirections";
 import ErrorHandler from "./Components/ErrorHandler";
 import CircularProgress from "@mui/material/CircularProgress";
+import SunMoon from "./Components/SunMoon";
 
 function App() {
   const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
@@ -64,8 +65,9 @@ function App() {
       <input
         placeholder='Enter a City Name...'
         value={city}
-        onChange={(e) => updatecity(e.target.value)}
+        onChange={(e) => updatecity(e.target.value.toUpperCase())}
         onKeyPress={onEnter}
+        onClick={() => updatecity(" ")} //blank input on click
       />
       {apiData === undefined ||
       apiData.cod === "404" ||
@@ -166,6 +168,7 @@ function App() {
           </div>
 
           <BgHandler apiData={apiData} />
+          <SunMoon latitude={apiData.coord.lat} longitude={apiData.coord.lon} />
         </div>
       )}
 
