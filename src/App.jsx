@@ -13,6 +13,8 @@ function App() {
   const [flag, setflag] = useState("");
   const [timezone, updateTimezone] = useState();
   const [timezoneOffset, updateTimezoneOffset] = useState();
+  const [sunrise, setSunrise] = useState();
+  const [sunset, setSunset] = useState();
 
   const date = new Date();
   let fullDate = date.toDateString();
@@ -56,10 +58,6 @@ function App() {
     flag && document.querySelector(".flagImg").classList.toggle("active");
   }, [flag]);
 
-  /*   const array = [1, 2, ":", 4, 5, ":", 0, 3];
-  const stringed = array.filter((entry) => entry > array.length - 7);
-  console.log(stringed); */
-
   return (
     <div className='core'>
       <input
@@ -79,7 +77,12 @@ function App() {
 
           <h2 className='dateString'>{fullDate} </h2>
 
-          <img onLoad={(Getflag(), RR())} className='flagImg' src='aa' alt='' />
+          <img
+            onLoad={(Getflag(), RR())}
+            className='flagImg'
+            src=''
+            alt='FLAG'
+          />
 
           <h2>
             <DateHandler
@@ -104,16 +107,22 @@ function App() {
           <h2 className='status' onClick={switchComfortClass}>
             Comfort🠻
           </h2>
+
           <div className='comfort active'>
-            <span id='humidityValue'>{apiData.main.humidity}%</span>
+            <h3>{sunrise} </h3>
+            <div>
+              <span id='humidityValue'>{apiData.main.humidity}%</span>
 
-            <CircularProgress
-              className='CircularProgress'
-              variant='determinate'
-              value={apiData.main.humidity}
-            />
+              <CircularProgress
+                className='CircularProgress'
+                variant='determinate'
+                value={apiData.main.humidity}
+              />
 
-            <span id='humidity'> Humidity </span>
+              <span id='humidity'> Humidity </span>
+            </div>
+
+            <h3>{sunset} </h3>
           </div>
 
           <h2 className='status' onClick={switchStatusClass}>
@@ -168,7 +177,12 @@ function App() {
           </div>
 
           <BgHandler apiData={apiData} />
-          <SunMoon latitude={apiData.coord.lat} longitude={apiData.coord.lon} />
+          <SunMoon
+            latitude={apiData.coord.lat}
+            longitude={apiData.coord.lon}
+            sunrise={setSunrise}
+            sunset={setSunset}
+          />
         </div>
       )}
 

@@ -1,34 +1,41 @@
 import React, { useEffect, useState } from "react";
 
-function SunMoon({ latitude, longitude }) {
+function SunMoon({ latitude, longitude, sunrise, sunset }) {
   const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f";
-  const [sunrise, setSunrise] = useState();
-  const [moonrise, setMoonrise] = useState();
 
-  async function FetchSunMoon(params) {
+  //Azimuth
+  const [moonAzimuth, setMoonAzimuth] = useState();
+  const [sunAzimuth, setSunAzimuth] = useState();
+
+  const [daylength, setdaylength] = useState();
+
+  async function FetchSunMoon() {
     const result = await fetch(
       `https://api.ipgeolocation.io/astronomy?apiKey=${apiKEY}&lat=-${latitude}&long=${longitude}`
     );
     const data = await result.json();
-    setSunrise(data.sunrise);
-    setMoonrise(data.moonrise);
-    console.log(data);
+
+    sunrise(data.sunrise);
+    sunset(data.sunset);
+
+    setMoonAzimuth(data.moon_azimuth.toFixed(1));
+    setSunAzimuth(data.sun_azimuth.toFixed(1));
+
+    setdaylength(data.day_length);
   }
-  /* FetchSunMoon()
-    .then((data) =>
-      (document.querySelector(".sun").innerHTML = data.sunrise)(
-        (document.querySelector(".moon").innerHTML = data.moonrise)
-      )
-    ) 
-    .catch((error) => console.log(error));*/
+
   useEffect(() => {
-    FetchSunMoon();
+    FetchSunMoon().catch((error) => console.log(error));
   }, [latitude, longitude]);
   return (
-    <div>
-      <div className='sun'>{sunrise} </div>
-      <div className='moon'>{moonrise} </div>
-    </div>
+    { sunrise },
+    (
+      <div>
+        <div className='Azimuth'>{sunAzimuth}° </div>
+        <div className='Azimuth'>{moonAzimuth}° </div>
+        <div>{daylength} </div>
+      </div>
+    )
   );
 }
 

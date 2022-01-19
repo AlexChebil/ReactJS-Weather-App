@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import SunMoon from "./SunMoon";
 
 function DateHandler({ latitude, longitude, UTZ, UTZO }) {
   const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f";
