@@ -30,10 +30,14 @@ function SunMoon({ latitude, longitude, sunrise, sunset }) {
   return (
     { sunrise },
     (
-      <div>
-        <div className='Azimuth'>{sunAzimuth}° </div>
-        <div className='Azimuth'>{moonAzimuth}° </div>
-        <div>{daylength} </div>
+      <div className='sunMoon'>
+        <div className='Azimuth'>
+          Sun's Azimuth: <div>{sunAzimuth}°</div>{" "}
+        </div>
+        <div>
+          daylength <div>{daylength}</div>
+        </div>
+        <div className='Azimuth'> {moonAzimuth}° </div>
       </div>
     )
   );

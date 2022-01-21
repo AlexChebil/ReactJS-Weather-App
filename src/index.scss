@@ -261,6 +261,8 @@ body {
   height: 2em;
   transition: all 0.25s ease-in-out;
   font-weight: bolder;
+  display: flex;
+  justify-content: center;
 
   :nth-child(n) {
     margin-top: 0.25em;
@@ -279,6 +281,15 @@ body {
   }
   .CircularProgress {
     width: 2em !important;
+  }
+  .css-1rn30mb-MuiCircularProgress-root {
+    // CircularProgress Color
+    color: rgb(0, 255, 136);
+  }
+  .humidity {
+    margin-left: -0.5em;
+    margin-right: 1.5em;
+    align-self: center;
   }
 }
 .comfort.active {
@@ -355,4 +366,13 @@ body {
     opacity: 0;
     font-size: 0;
   }
+}
+.sunMoonCont {
+  .sunMoon {
+    display: flex;
+    justify-content: space-evenly;
+    .Azimuth {
+    }
+  }
+  margin-bottom: 5%;
 }

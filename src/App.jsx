@@ -58,6 +58,14 @@ function App() {
     flag && document.querySelector(".flagImg").classList.toggle("active");
   }, [flag]);
 
+  const navOnline = window.navigator.onLine;
+
+  if (navOnline) {
+    console.log("online");
+  } else {
+    console.log("offline");
+  }
+
   return (
     <div className='core'>
       <input
@@ -110,7 +118,7 @@ function App() {
 
           <div className='comfort active'>
             <h3>{sunrise} </h3>
-            <div>
+            <div className='humidity'>
               <span id='humidityValue'>{apiData.main.humidity}%</span>
 
               <CircularProgress
@@ -176,13 +184,17 @@ function App() {
             <h2> UTC Offset: {timezoneOffset} </h2>
           </div>
 
+          <div className='sunMoonCont'>
+            <h2 className='status'>Space🠻</h2>
+            <SunMoon
+              latitude={apiData.coord.lat}
+              longitude={apiData.coord.lon}
+              sunrise={setSunrise}
+              sunset={setSunset}
+            />
+          </div>
+
           <BgHandler apiData={apiData} />
-          <SunMoon
-            latitude={apiData.coord.lat}
-            longitude={apiData.coord.lon}
-            sunrise={setSunrise}
-            sunset={setSunset}
-          />
         </div>
       )}
 
