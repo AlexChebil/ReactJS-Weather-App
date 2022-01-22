@@ -371,8 +371,39 @@ body {
   .sunMoon {
     display: flex;
     justify-content: space-evenly;
-    .Azimuth {
+    border-radius: 2em;
+    background-color: rgba(128, 128, 128, 0.246);
+    padding: 1em;
+    transition: all 0.25s ease-in-out;
+    height: 5em;
+
+    :nth-child(n) {
+      transition: all 0.5s ease-in-out;
+
+      opacity: 1;
+      font-size: 1em;
+    }
+    h3:not(:nth-child(3)) {
+      //all childs except the 3rd one
+      border-right: 2px solid red;
+    }
+    h3:nth-child(2) {
+      padding: 0 1em;
     }
   }
-  margin-bottom: 5%;
+
+  margin-bottom: 5em;
+}
+
+.sunMoon.active {
+  height: 1.25em;
+  border-radius: 2em;
+  margin-bottom: 5em;
+  transition: all 0.5s ease-in-out;
+
+  :nth-child(n) {
+    opacity: 0;
+    font-size: 0;
+    transition: all 0.5s ease-in-out;
+  }
 }

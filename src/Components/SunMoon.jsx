@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function SunMoon({ latitude, longitude, sunrise, sunset }) {
-  const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f";
+  const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f"; //different from the default api
 
   //Azimuth
   const [moonAzimuth, setMoonAzimuth] = useState();
@@ -31,13 +31,15 @@ function SunMoon({ latitude, longitude, sunrise, sunset }) {
     { sunrise },
     (
       <div className='sunMoon'>
-        <div className='Azimuth'>
-          Sun's Azimuth: <div>{sunAzimuth}°</div>{" "}
-        </div>
-        <div>
-          daylength <div>{daylength}</div>
-        </div>
-        <div className='Azimuth'> {moonAzimuth}° </div>
+        <h3 className='Azimuth'>
+          Sun Azimuth: <div>{sunAzimuth}°</div>
+        </h3>
+        <h3>
+          daylength <div>{daylength} Hours</div>
+        </h3>
+        <h3 className='Azimuth'>
+          Moon Azimuth <div> {moonAzimuth}°</div>
+        </h3>
       </div>
     )
   );

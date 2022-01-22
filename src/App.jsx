@@ -42,6 +42,9 @@ function App() {
   function switchGeographicalClass() {
     document.querySelector(".gridCont").classList.toggle("active");
   }
+  function switchSpaceClass() {
+    document.querySelector(".sunMoon").classList.toggle("active");
+  }
 
   function Getflag() {
     fetch(`https://countryflagsapi.com/png/${apiData.sys.country}`)
@@ -184,8 +187,10 @@ function App() {
             <h2> UTC Offset: {timezoneOffset} </h2>
           </div>
 
+          <h2 onClick={switchSpaceClass} className='status'>
+            Space🠻
+          </h2>
           <div className='sunMoonCont'>
-            <h2 className='status'>Space🠻</h2>
             <SunMoon
               latitude={apiData.coord.lat}
               longitude={apiData.coord.lon}
