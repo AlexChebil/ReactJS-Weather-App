@@ -1,43 +1,51 @@
 import React, { useEffect } from "react";
 
-function BgHandler({ apiData }) {
+function BgHandler({ dateFromApi }) {
+  if (dateFromApi !== undefined) {
+    var parsed = parseInt(dateFromApi, 10); // 'var' to be accessed on all the document
+    //parseInt() to convert data (string) to number
+  }
+  const lateNight = [0, 1, 2, 3];
+
   useEffect(() => {
     switch (true) {
-      case apiData.weather[0].main === "Clear":
+      case parsed >= 4 && parsed <= 7:
         document.body.removeAttribute("class"); // to remove all classes and start adding from 0
-        document.body.classList.add("clearSky");
+        document.body.classList.add("dawn");
         break;
 
-      case apiData.weather[0].description === "broken clouds" ||
-        apiData.weather[0].description === "scattered clouds":
+      case parsed > 7 && parsed <= 11:
         document.body.removeAttribute("class");
-        document.body.classList.add("heavyClouds");
+        document.body.classList.add("morning");
         break;
 
-      case apiData.weather[0].main === "Rain" &&
-        apiData.weather[0].description !== "light rain":
+      case parsed > 11 && parsed <= 15:
         document.body.removeAttribute("class");
-        document.body.classList.add("heavyRain");
+        document.body.classList.add("noon");
         break;
 
-      case apiData.weather[0].main === "Rain":
+      case parsed > 15 && parsed <= 18:
         document.body.removeAttribute("class");
-        document.body.classList.add("lightRain");
+        document.body.classList.add("afternoon");
         break;
 
-      case apiData.weather[0].main === "Clouds":
+      case parsed > 18 && parsed <= 20:
         document.body.removeAttribute("class");
-        document.body.classList.add("lightClouds");
+        document.body.classList.add("evening");
         break;
 
-      // add snow and mist here
+      case (parsed > 20 && parsed <= 24) || lateNight.includes(parsed):
+        document.body.removeAttribute("class");
+        document.body.classList.add("night");
+        break;
 
       default:
         document.body.classList.add("lightRain");
+        console.log(dateFromApi);
 
         break;
     }
-  }, [apiData]);
+  }, [dateFromApi]);
 
   return <div></div>;
 }

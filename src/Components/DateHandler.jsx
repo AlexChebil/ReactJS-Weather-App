@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import SunMoon from "./SunMoon";
 
-function DateHandler({ latitude, longitude, UTZ, UTZO }) {
+function DateHandler({ latitude, longitude, UTZ, UTZO, dateFromApi }) {
   const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f";
 
   async function getTime() {
@@ -11,6 +10,7 @@ function DateHandler({ latitude, longitude, UTZ, UTZO }) {
     const data = await response.json();
     await UTZ(data.timezone);
     await UTZO(data.timezone_offset);
+    await dateFromApi(data.time_24);
     return data;
   }
 

@@ -15,6 +15,7 @@ function App() {
   const [timezoneOffset, updateTimezoneOffset] = useState();
   const [sunrise, setSunrise] = useState();
   const [sunset, setSunset] = useState();
+  const [dateFromApi, updateDateFromApi] = useState();
 
   const date = new Date();
   let fullDate = date.toDateString();
@@ -61,14 +62,6 @@ function App() {
     flag && document.querySelector(".flagImg").classList.toggle("active");
   }, [flag]);
 
-  const navOnline = window.navigator.onLine;
-
-  if (navOnline) {
-    console.log("online");
-  } else {
-    console.log("offline");
-  }
-
   return (
     <div className='core'>
       <input
@@ -88,12 +81,7 @@ function App() {
 
           <h2 className='dateString'>{fullDate} </h2>
 
-          <img
-            onLoad={(Getflag(), RR())}
-            className='flagImg'
-            src=''
-            alt='FLAG'
-          />
+          <img onLoad={(Getflag(), RR())} className='flagImg' src='' alt='' />
 
           <h2>
             <DateHandler
@@ -101,6 +89,7 @@ function App() {
               longitude={apiData.coord.lon}
               UTZ={updateTimezone}
               UTZO={updateTimezoneOffset}
+              dateFromApi={updateDateFromApi}
             />
           </h2>
 
@@ -177,15 +166,6 @@ function App() {
               <h4> {apiData.wind.gust}M/s </h4>
             </div>
           </div>
-          <h2 onClick={switchGeographicalClass} className='status'>
-            Geographical Coordinates🠻
-          </h2>
-          <div className='gridCont active'>
-            <h2>Longitude: {apiData.coord.lon}</h2>
-            <h2>Latitude: {apiData.coord.lat}</h2>
-            <h2> Timezone: {timezone} </h2>
-            <h2> UTC Offset: {timezoneOffset} </h2>
-          </div>
 
           <h2 onClick={switchSpaceClass} className='status'>
             Space🠻
@@ -199,7 +179,17 @@ function App() {
             />
           </div>
 
-          <BgHandler apiData={apiData} />
+          <h2 onClick={switchGeographicalClass} className='status'>
+            Geographical Coordinates🠻
+          </h2>
+          <div className='gridCont active'>
+            <h2>Longitude: {apiData.coord.lon}</h2>
+            <h2>Latitude: {apiData.coord.lat}</h2>
+            <h2> Timezone: {timezone} </h2>
+            <h2> UTC Offset: {timezoneOffset} </h2>
+          </div>
+
+          <BgHandler dateFromApi={dateFromApi} />
         </div>
       )}
 
