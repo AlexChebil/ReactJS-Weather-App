@@ -1,7 +1,65 @@
-@media screen and (max-width: 500px) {
+@media all and (min-width: 300px) {
   body {
     input {
       background-color: red;
+    }
+
+    .comfort {
+      font-size: 1.35em;
+
+      :nth-child(n) {
+        margin-top: 0;
+      }
+      .CircularProgress {
+        position: relative;
+        left: 0.6em;
+      }
+    }
+    .flexContStatus,
+    .flexContWind {
+      font-size: 0.7em;
+      height: fit-content;
+    }
+    .flexContStatus {
+      width: fit-content;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .flexContWind {
+      margin: 0 -0.25em;
+    }
+    .sunMoonCont {
+      font-size: 1.1em;
+      margin-bottom: 2em;
+      :nth-child(2) {
+        padding: 0 1.5em !important;
+      }
+    }
+
+    .gridCont {
+      font-size: 0.7em;
+      width: fit-content;
+    }
+  }
+}
+
+@media all and (min-width: 300px) and (max-width: 400px) {
+  body {
+    input {
+      background-color: blueviolet;
+    }
+    .comfort {
+      font-size: 1.2em;
+    }
+    .flexContStatus {
+      margin-left: auto;
+      margin-right: auto;
+      width: clamp(10em, 100%, 400%);
+    }
+    .flexContStatus,
+    .flexContWind {
+      font-size: 0.65em;
+      height: fit-content;
     }
   }
 }

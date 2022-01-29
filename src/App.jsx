@@ -172,6 +172,7 @@ function App() {
           </h2>
           <div className='sunMoonCont'>
             <SunMoon
+              className='active'
               latitude={apiData.coord.lat}
               longitude={apiData.coord.lon}
               sunrise={setSunrise}

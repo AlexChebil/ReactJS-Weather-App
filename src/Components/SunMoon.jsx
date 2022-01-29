@@ -30,9 +30,9 @@ function SunMoon({ latitude, longitude, sunrise, sunset }) {
   return (
     { sunrise },
     (
-      <div className='sunMoon'>
+      <div className='sunMoon active'>
         <h3 className='Azimuth'>
-          Sun Azimuth: <div>{sunAzimuth}°</div>
+          Sun Azimuth <div>{sunAzimuth}°</div>
         </h3>
         <h3>
           daylength <div>{daylength}h</div>

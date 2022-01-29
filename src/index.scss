@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
   height: 120vh;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .core {
@@ -259,7 +260,7 @@ body {
 
 .comfort {
   background-color: rgba(128, 128, 128, 0.246);
-  border-radius: 2em;
+  border-radius: 1em;
   font-size: 1.5em;
   padding: 1em;
   height: 2em;
@@ -376,7 +377,7 @@ body {
   .sunMoon {
     display: flex;
     justify-content: center;
-    border-radius: 2em;
+    border-radius: 1em;
     background-color: rgba(128, 128, 128, 0.246);
     transition: all 0.25s ease-in-out;
     height: 5em;
@@ -398,8 +399,7 @@ body {
       line-height: 2em;
     }
   }
-
-  margin-bottom: 5em;
+  margin-bottom: -2.25em;
 }
 
 .sunMoon.active {
