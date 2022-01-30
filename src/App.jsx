@@ -7,7 +7,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import SunMoon from "./Components/SunMoon";
 
 function App() {
-  const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
+  const apiKey = "NO you will not get is";
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
   const [flag, setflag] = useState("");

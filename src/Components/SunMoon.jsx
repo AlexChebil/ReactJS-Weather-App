@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function SunMoon({ latitude, longitude, sunrise, sunset }) {
-  const apiKEY = "00659b464edf43ca82a48ab0ceef4b4f"; //different from the default api
+  const apiKEY = "no no"; //different from the default api
 
   //Azimuth
   const [moonAzimuth, setMoonAzimuth] = useState();
