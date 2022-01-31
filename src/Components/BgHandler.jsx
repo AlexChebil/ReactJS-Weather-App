@@ -41,7 +41,6 @@ function BgHandler({ dateFromApi }) {
 
       default:
         document.body.classList.add("lightRain");
-        console.log(dateFromApi);
 
         break;
     }

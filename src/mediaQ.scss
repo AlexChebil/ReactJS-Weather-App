@@ -1,9 +1,5 @@
 @media all and (min-width: 300px) {
   body {
-    input {
-      background-color: red;
-    }
-
     .comfort {
       font-size: 1.35em;
 
@@ -42,7 +38,11 @@
     }
   }
 }
-
+@media all and (min-width: 300px) and (max-width: 361px) {
+  body .comfort #humidity {
+    margin-right: -2.25em !important;
+  }
+}
 @media all and (min-width: 300px) and (max-width: 400px) {
   body {
     input {
@@ -50,6 +50,9 @@
     }
     .comfort {
       font-size: 1.2em;
+      #humidity {
+        margin: 0 0.5em;
+      }
     }
     .flexContStatus {
       margin-left: auto;
@@ -61,5 +64,64 @@
       font-size: 0.65em;
       height: fit-content;
     }
+  }
+}
+@media all and (min-width: 500px) and (max-width: 900px) {
+  body {
+    :nth-child(n) {
+      border: none !important;
+    }
+    .gridCont {
+      :nth-child(1) {
+        border-bottom: 2px solid rgb(90, 90, 90) !important;
+        border-right: 2px solid rgb(90, 90, 90) !important;
+
+        margin-right: -0.75em;
+      }
+      :nth-child(2) {
+        border-bottom: 2px solid rgb(90, 90, 90) !important;
+      }
+
+      :nth-child(3) {
+        border-top: 2px solid rgb(90, 90, 90) !important;
+        border-right: 2px solid rgb(90, 90, 90) !important;
+
+        margin-right: -0.75em;
+      }
+      :nth-child(4) {
+        border-top: 2px solid rgb(90, 90, 90) !important;
+        //margin-left: -0.5em;
+      }
+    }
+  }
+  .comfort {
+    justify-content: space-between;
+    font-size: 1.5em !important;
+    #humidity {
+      margin-left: 0.5em;
+    }
+    #humidityValue {
+      right: -60.5px;
+    }
+  }
+  .flexContStatus {
+    font-size: large !important;
+    width: 100% !important;
+  }
+  .flexContWind {
+    font-size: 0.9em !important;
+  }
+  .sunMoon {
+    font-size: 1.25em !important;
+    justify-content: space-between !important;
+    :nth-child(2) {
+      line-height: initial !important;
+    }
+    :nth-child(n) {
+      margin-top: 0.75em !important;
+    }
+  }
+  .gridCont {
+    font-size: 1em !important;
   }
 }
