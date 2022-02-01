@@ -56,10 +56,9 @@ body.night {
       hsl(236deg 67% 8%) 100%
     )
     fixed;
+  color: rgb(51, 187, 130);
 }
 
 body {
-  background-image: url(Background/night.webp);
+  // will "try" to add random gradient on each refresh
 }
-
-//da
