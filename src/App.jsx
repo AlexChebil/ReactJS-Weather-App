@@ -5,9 +5,10 @@ import DegreesToDirections from "./Components/DegreesToDirections";
 import ErrorHandler from "./Components/ErrorHandler";
 import CircularProgress from "@mui/material/CircularProgress";
 import SunMoon from "./Components/SunMoon";
+import RandomGradient from "./Components/RandomGradient";
 
 function App() {
-  const apiKey = "NO you will not get is";
+  const apiKey = "c3ba5e0699ab7ddd951ea6fd02b9d372";
   const [city, updatecity] = useState("");
   const [apiData, setApiData] = useState();
   const [flag, setflag] = useState("");
@@ -64,6 +65,8 @@ function App() {
 
   return (
     <div className='core'>
+      <RandomGradient />
+
       <input
         placeholder='Enter a City Name...'
         value={city}
