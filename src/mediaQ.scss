@@ -2,6 +2,9 @@
   body {
     .comfort {
       font-size: 1.35em;
+      h3 {
+        margin-top: -0.75em !important;
+      }
 
       :nth-child(n) {
         margin-top: 0;
@@ -39,11 +42,21 @@
   }
 }
 @media all and (min-width: 300px) and (max-width: 361px) {
-  body .comfort #humidity {
-    margin-right: -2.25em !important;
+  #humidityValue {
+    right: -21.5px !important;
+  }
+  #humidity {
+    margin: 0 -1.5em !important;
+  }
+  .comfort {
+    justify-content: space-between;
+  }
+  body .comfort .CircularProgress {
+    position: relative;
+    left: -0.6em;
   }
 }
-@media all and (min-width: 300px) and (max-width: 400px) {
+@media all and (min-width: 362px) and (max-width: 400px) {
   body {
     .comfort {
       font-size: 1.2em;
@@ -63,6 +76,15 @@
     }
   }
 }
+@media all and (min-width: 401px) and (max-width: 499px) {
+  .comfort .humidity {
+    margin-right: 0;
+  }
+  .comfort #humidity {
+    margin-left: 2.25em;
+  }
+}
+
 @media all and (min-width: 500px) and (max-width: 900px) {
   body {
     :nth-child(n) {

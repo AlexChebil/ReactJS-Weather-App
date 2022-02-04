@@ -17,6 +17,7 @@ function App() {
   const [sunrise, setSunrise] = useState();
   const [sunset, setSunset] = useState();
   const [dateFromApi, updateDateFromApi] = useState();
+  const [cityFound, setCityFound] = useState(false);
 
   const date = new Date();
   let fullDate = date.toDateString();
@@ -65,7 +66,7 @@ function App() {
 
   return (
     <div className='core'>
-      <RandomGradient />
+      <RandomGradient cityFound={cityFound} setCityFound={setCityFound} />
 
       <input
         placeholder='Enter a City Name...'
@@ -112,7 +113,9 @@ function App() {
           </h2>
 
           <div className='comfort active'>
-            <h3>{sunrise} </h3>
+            <div>
+              <h3>Sunrise</h3> {sunrise}
+            </div>
             <div className='humidity'>
               <span id='humidityValue'>{apiData.main.humidity}%</span>
 
@@ -125,7 +128,9 @@ function App() {
               <span id='humidity'> Humidity </span>
             </div>
 
-            <h3>{sunset} </h3>
+            <div>
+              <h3>Sunset</h3> {sunset}
+            </div>
           </div>
 
           <h2 className='status' onClick={switchStatusClass}>
@@ -193,7 +198,11 @@ function App() {
             <h2> UTC Offset: {timezoneOffset} </h2>
           </div>
 
-          <BgHandler dateFromApi={dateFromApi} />
+          <BgHandler
+            dateFromApi={dateFromApi}
+            setCityFound={setCityFound}
+            cityFound={cityFound}
+          />
         </div>
       )}
 

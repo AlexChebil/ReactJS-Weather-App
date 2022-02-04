@@ -6,7 +6,6 @@ body.dawn {
       hsl(0deg 100% 90%) 99%
     )
     fixed;
-  // dawn
 }
 body.morning {
   background: linear-gradient(
@@ -57,8 +56,4 @@ body.night {
     )
     fixed;
   color: rgb(51, 187, 130);
-}
-
-body {
-  // will "try" to add random gradient on each refresh
 }

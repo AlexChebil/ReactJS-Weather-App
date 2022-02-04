@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 
-function RandomGradient() {
+function RandomGradient({ setCityFound, cityFound }) {
   const jsonData = require("../Data/Colors.json");
   const colors = Object.keys(jsonData);
-
-  const body = document.querySelector("body");
 
   function getColor() {
     const randomColor = Math.floor(Math.random() * colors.length);
@@ -13,8 +11,8 @@ function RandomGradient() {
   }
 
   useEffect(() => {
-    getColor();
-    body.style.background = `linear-gradient(${getColor()},${getColor()})`;
+    document.body.style.background = `linear-gradient(${getColor()},${getColor()})`;
+    setCityFound(true);
   }, []);
 
   return <div></div>;
