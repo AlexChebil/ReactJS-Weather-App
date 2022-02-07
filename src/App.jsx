@@ -116,7 +116,10 @@ function App() {
             <div>
               <h3>Sunrise</h3> {sunrise}
             </div>
-            <div className='humidity'>
+            <div
+              title='A quantity representing the amount of water vapour in the atmosphere or in a gas'
+              className='humidity'
+            >
               <span id='humidityValue'>{apiData.main.humidity}%</span>
 
               <CircularProgress
@@ -146,8 +149,14 @@ function App() {
               Description <h3>{apiData.weather[0].description} </h3>
             </div>
 
-            <div>
-              Pressure <h3>{apiData.main.pressure} hPa </h3>
+            <div title='Atmospheric pressure refers to the weight of the air'>
+              Pressure
+              <h3 title=''>
+                {apiData.main.pressure} {""}
+                <span title='The Hectopascal is the international unit for measuring atmospheric or barometric pressure. 1 Hectopascal equals 100 Pascals.'>
+                  hPa
+                </span>
+              </h3>
             </div>
           </div>
 
@@ -169,14 +178,14 @@ function App() {
               </h4>
             </div>
 
-            <div>
+            <div title='A Sudden Strong Wind'>
               Gust
-              <h4> {apiData.wind.gust}M/s </h4>
+              <h4> {apiData.wind.gust ? null : "0"} M/s </h4>
             </div>
           </div>
 
           <h2 onClick={switchSpaceClass} className='status'>
-            Space🠻
+            Azimuth🠻
           </h2>
           <div className='sunMoonCont'>
             <SunMoon
@@ -192,8 +201,12 @@ function App() {
             Geographical Coordinates🠻
           </h2>
           <div className='gridCont active'>
-            <h2>Longitude: {apiData.coord.lon}</h2>
-            <h2>Latitude: {apiData.coord.lat}</h2>
+            <h2 title='The angular distance of a place east or west of the Greenwich meridian'>
+              Longitude: {apiData.coord.lon}
+            </h2>
+            <h2 title="the angular distance of a place north or south of the earth's equator">
+              Latitude: {apiData.coord.lat}
+            </h2>
             <h2> Timezone: {timezone} </h2>
             <h2> UTC Offset: {timezoneOffset} </h2>
           </div>

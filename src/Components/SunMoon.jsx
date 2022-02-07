@@ -31,13 +31,19 @@ function SunMoon({ latitude, longitude, sunrise, sunset }) {
     { sunrise },
     (
       <div className='sunMoon active'>
-        <h3 className='Azimuth'>
+        <h3
+          title='Azimuth is usually denoted alpha, And defined as a horizontal angle measured clockwise from a north base line or meridian.'
+          className='Azimuth'
+        >
           Sun Azimuth <div>{sunAzimuth}°</div>
         </h3>
         <h3>
           Daylength <div>{daylength}h</div>
         </h3>
-        <h3 className='Azimuth'>
+        <h3
+          title='Azimuth is usually denoted alpha, And defined as a horizontal angle measured clockwise from a north base line or meridian.'
+          className='Azimuth'
+        >
           Moon Azimuth <div> {moonAzimuth}°</div>
         </h3>
       </div>

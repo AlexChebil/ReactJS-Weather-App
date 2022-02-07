@@ -43,7 +43,7 @@
 }
 @media all and (min-width: 300px) and (max-width: 361px) {
   #humidityValue {
-    right: -21.5px !important;
+    right: -26.5px !important;
   }
   #humidity {
     margin: 0 -1.5em !important;
@@ -54,6 +54,9 @@
   body .comfort .CircularProgress {
     position: relative;
     left: -0.6em;
+  }
+  .flexContStatus {
+    width: 100% !important;
   }
 }
 @media all and (min-width: 362px) and (max-width: 400px) {
@@ -153,7 +156,7 @@
       border: none !important;
     }
     .comfort {
-      justify-content: space-around;
+      justify-content: space-around !important;
       #humidity {
         margin-left: 0.5em !important;
       }
@@ -161,9 +164,11 @@
     .flexContStatus {
       font-size: 1em !important;
       width: 100%;
+      justify-content: space-around !important;
     }
     .flexContWind {
       font-size: 0.8em;
+      justify-content: space-around !important;
     }
     .sunMoon {
       justify-content: space-around !important;
