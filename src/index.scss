@@ -401,7 +401,6 @@ body {
       line-height: 2em;
     }
   }
-  margin-bottom: -2.25em;
 }
 
 .sunMoon.active {
@@ -413,6 +412,8 @@ body {
   margin-left: auto;
   width: 70%;
   height: 3em;
+  margin-bottom: initial;
+  border: 2px solid rgba(194, 194, 194, 0.356);
 
   :nth-child(n) {
     opacity: 0;
