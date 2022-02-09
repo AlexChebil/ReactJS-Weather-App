@@ -25,7 +25,7 @@ function App() {
   function onEnter(e) {
     if (e.key === "Enter") {
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       )
         .then((response) => response.json())
         .then((data) => setApiData(data))
