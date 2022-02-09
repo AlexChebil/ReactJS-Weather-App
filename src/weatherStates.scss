@@ -1,0 +1,59 @@
+body.dawn {
+  background: linear-gradient(
+      25deg,
+      hsl(31deg 100% 51%) 1%,
+      hsl(15deg 100% 76%) 50%,
+      hsl(0deg 100% 90%) 99%
+    )
+    fixed;
+}
+body.morning {
+  background: linear-gradient(
+      215deg,
+      hsl(175deg 90% 54%) 0%,
+      hsl(188deg 89% 58%) 46%,
+      hsl(208deg 85% 52%) 73%,
+      hsl(235deg 79% 38%) 100%
+    )
+    fixed;
+}
+body.noon {
+  background: linear-gradient(
+      35deg,
+      hsl(0deg 84% 63%) 0%,
+      hsl(15deg 87% 69%) 21%,
+      hsl(29deg 91% 65%) 54%,
+      hsl(43deg 96% 53%) 100%
+    )
+    fixed;
+}
+body.afternoon {
+  background: linear-gradient(
+      35deg,
+      hsl(0deg 84% 63%) 11%,
+      hsl(11deg 89% 60%) 74%,
+      hsl(22deg 94% 56%) 100%
+    )
+    fixed;
+}
+
+body.evening {
+  background: linear-gradient(
+      50deg,
+      hsl(223deg 68% 6%) 0%,
+      hsl(244deg 83% 28%) 30%,
+      hsl(266deg 100% 50%) 100%
+    )
+    fixed;
+}
+
+body.night {
+  background: linear-gradient(
+      230deg,
+      hsl(267deg 100% 10%) 0%,
+      hsl(258deg 75% 10%) 50%,
+      hsl(236deg 67% 8%) 100%
+    )
+    fixed;
+  color: rgb(51, 187, 130);
+}
